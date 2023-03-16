@@ -8,6 +8,7 @@ class Promotion(models.Model):
 
 class Collection(models.Model):
     title = models.CharField(max_length=255)
+    featured_product = models.ForeignKey('Product',on_delete=models.SET_NULL, null= True,related_name='+')
 
 class Product(models.Model):
     title = models.CharField(max_length=255)
@@ -18,14 +19,14 @@ class Product(models.Model):
     last_update = models.DateTimeField(auto_now=True)
     collection = models.ForeignKey(Collection, on_delete=models.PROTECT)
     
-    
+     
     
     
     # django is going to create reverse implementation in the Promotion class.
     # So in the Promotion class we gonna have a field called product_set.
     # we can also use related_name = products to change default name but because 
     # I dont use this we will have product_set at Promotion class.
-    promotions =  models.models.ManyToManyField(Promotion)
+    promotions =  models.ManyToManyField(Promotion)
 
 
 class Customer(models.Model):
