@@ -1,13 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
-
-def calculate():
-    x = 1
-    y = 2
-    return x
+from django.core.exceptions import ObjectDoesNotExist
+from store.models import Product
 
 
 def say_hello(request):
-    x = calculate()
-    return render(request, 'hello.html', {'name': 'Mosh'})
+    # to order in 'x' prameter quote in prenteces like : order_by('x')
+    queryset = Product.objects.all().order_by('unit_price')
+
+    return render(request,'hello.html',{'name':'erfan','products': list(queryset)})
