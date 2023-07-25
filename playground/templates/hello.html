@@ -7,7 +7,8 @@
         {% endif %}
         <ul>
             {% for product in products %}
-            <li>{{ product.unit_price}}</li>
+            {% comment %} to print 2 parameters in 1 line. {% endcomment %}
+            <li>{{ product.unit_price}} - {{ product.title }}</li>
             {% endfor %}
         </ul>
     </body>
