@@ -6,5 +6,5 @@ from store.models import Product
 
 
 def say_hello(request):
-    product = Product.objects.latest('unit_price')
-    return render(request,'hello.html',{'name':'erfan','product': product})
+    queryset = Product.objects.all()[:10]
+    return render(request,'hello.html',{'name':'erfan','products': queryset})
