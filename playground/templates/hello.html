@@ -6,10 +6,7 @@
         <h1>Hello World</h1>
         {% endif %}
         <ul>
-            {% for product in products %}
-            {% comment %} to print 2 parameters in 1 line. {% endcomment %}
             <li>{{ product.unit_price}} - {{ product.title }}</li>
-            {% endfor %}
         </ul>
     </body>
 </html>
