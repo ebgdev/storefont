@@ -6,5 +6,5 @@ from store.models import Product
 
 
 def say_hello(request):
-    queryset = Product.objects.all()[:10]
+    queryset = Product.objects.values('id','title','collection__title').order_by('id')
     return render(request,'hello.html',{'name':'erfan','products': queryset})
