@@ -7,9 +7,7 @@
         {% endif %}
         <ul>
             {% for product in products %}
-            {% for x, y in product.items %}
-            <li>{{ y }}</li>
-            {% endfor %}
+            <li>{{ product.title }}</li>
             {% endfor %}
         </ul>
         <p>Number of results: {{ result_count }}</p>
