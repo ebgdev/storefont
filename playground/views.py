@@ -5,7 +5,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from store.models import Product, OrderItem
 
 def say_hello(request):
-    queryset = Product.objects.filter(id__in=OrderItem.objects.values('product_id').distinct()).order_by('title')
+    #we do also have defer method to select all fields except one 
+    queryset = Product.objects.only('id','title')
     # queryset_titles = queryset.keys()
     result_count = queryset.count()
     return render(request, 'hello.html', {'name': 'erfan', 'products': queryset, 'result_count': result_count})
