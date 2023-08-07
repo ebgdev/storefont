@@ -6,8 +6,8 @@
         <h1>Hello World</h1>
         {% endif %}
         <ul>
-            {% for last_order in orders %}
-            <li>{{ last_order}} </li>
+            {% for order in orders %}
+            <li>{{ order.id }} - {{ order.customer.first_name }} </li>
             {% endfor %} 
         </ul>
         <p>Number of results: {{ result_count }}</p>
