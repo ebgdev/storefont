@@ -5,11 +5,11 @@
         {% else %}
         <h1>Hello World</h1>
         {% endif %}
-        {% comment %} <ul>
-            {% for order in orders %}
-            <li>{{ order.id }} - {{ order.customer.first_name }} </li>
+        <p>Number of results: {{ result_count }}</p>
+        <ul>
+            {% for i in queryset %}
+            <li>{{ i.full_name }}</li>
             {% endfor %} 
-        </ul> {% endcomment %}
-        <p>Number of results: {{ result }}</p>
+        </ul>
     </body>
 </html>
