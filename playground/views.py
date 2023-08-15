@@ -7,6 +7,6 @@ from django.core.exceptions import ObjectDoesNotExist
 from store.models import Product, Order , OrderItem , Customer
 
 def say_hello(request):
-    queryset = Customer.objects.annotate(full_name = Concat('first_name',Value(' '),'last_name'))
+    queryset = Customer.objects.annotate(order_counts = Count('order'))
     result_count = queryset.count()
     return render(request, 'hello.html', {'name': 'erfan','result_count':result_count ,'queryset': list(queryset)})
