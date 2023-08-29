@@ -5,7 +5,6 @@
         {% else %}
         <h1>Hello World</h1>
         {% endif %}
-        <p>Number of results: {{ result_count }}</p>
         <ul>
             {% for i in queryset %}
             <li>{{ i.full_name }}</li>
